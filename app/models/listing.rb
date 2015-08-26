@@ -10,7 +10,12 @@ class Listing < ActiveRecord::Base
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 	end
 
+	#add validations
 	validates :name, :description, :price, presence: true
 	validates :price, numericality: {greater_than: 0}
 	validates_attachment_presence :image
+
+	#link to user
+	belongs_to :user
+
 end
