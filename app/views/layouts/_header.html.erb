@@ -15,9 +15,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/pages/about">About</a></li>
-        <li><a href="/pages/contacts">Contacts</a></li>
+        <li><%= link_to "About", pages_about_path%></a></li>
+        <li><%= link_to "Contact", pages_contacts_path%></a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Edit Profile", edit_user_registration_path%></a></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method:  :delete%></a></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path%></a></li>
+          <li><%= link_to "Sign In", new_user_session_path%></a></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
