@@ -7,7 +7,6 @@ class Listing < ActiveRecord::Base
 					  :storage => :dropbox,
 					  :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
 					  :path => ":style/:id_:filename"
-	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 	belongs_to :user
 	end
 
